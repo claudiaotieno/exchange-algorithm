@@ -59,4 +59,15 @@ int main() {
         cout << "Time: " << duration << " ms" << endl;
     }
     
+    // Example with fixed small list
+    cout << "\n=== Example Walkthrough ===" << endl;
+    vector<int> example = {3, 1, 4, 1, 5, 9, 2};
+    cout << "Original: ";
+    printArray(example);
+    SortStats exStats = exchangeSortDescending(example);
+    cout << "Sorted (descending): ";
+    printArray(example);
+    cout << "Comparisons: " << exStats.comparisons << ", Swaps: " << exStats.swaps << endl;
     
+    return 0;
+}
