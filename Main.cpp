@@ -3,6 +3,8 @@ using namespace std;
 
 int main() {
     int n;
+    int comparisons = 0;
+    int swaps = 0;
 
     cout << "Enter number of elements: ";
     cin >> n;
@@ -14,10 +16,12 @@ int main() {
         cin >> arr[i];
     }
 
-    // Exchange Sort
+    // Exchange Sort with counting
     for(int i = 0; i < n - 1; i++) {
         for(int j = i + 1; j < n; j++) {
+            comparisons++;
             if(arr[i] > arr[j]) {
+                swaps++;
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
@@ -31,5 +35,9 @@ int main() {
     }
 
     cout << endl;
+
+    cout << "Total Comparisons: " << comparisons << endl;
+    cout << "Total Swaps: " << swaps << endl;
+
     return 0;
 }
