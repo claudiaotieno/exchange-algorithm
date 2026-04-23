@@ -1,22 +1,23 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 int main() {
     int n;
-    int comparisons = 0;
-    int swaps = 0;
+    long long comparisons = 0;
+    long long swaps = 0;
 
     cout << "Enter number of elements: ";
     cin >> n;
 
-    int arr[n];
+    int* arr = new int[n];
 
-    cout << "Enter " << n << " integers:\n";
+    // Auto-generate values instead of manual input
     for(int i = 0; i < n; i++) {
-        cin >> arr[i];
+        arr[i] = rand() % 100000;
     }
 
-    // Exchange Sort with counting
+    // Exchange Sort
     for(int i = 0; i < n - 1; i++) {
         for(int j = i + 1; j < n; j++) {
             comparisons++;
@@ -29,15 +30,10 @@ int main() {
         }
     }
 
-    cout << "Sorted array:\n";
-    for(int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
+    cout << "Sorting complete.\n";
+    cout << "Comparisons: " << comparisons << endl;
+    cout << "Swaps: " << swaps << endl;
 
-    cout << endl;
-
-    cout << "Total Comparisons: " << comparisons << endl;
-    cout << "Total Swaps: " << swaps << endl;
-
+    delete[] arr;
     return 0;
 }
